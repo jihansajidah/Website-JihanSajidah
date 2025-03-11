@@ -53,11 +53,13 @@ nav ul li {
 }
 
 nav ul li a {
-    color: #FFFF00;
+    color: #BF3131;
     font-weight: lighter;
     text-align: end;
     padding: 0px 16px 0px 16px;
     text-decoration: none;
+    font-size: 15px;
+    font-weight: 100;
 }
 
 nav ul li a:hover {
@@ -76,10 +78,9 @@ section {
 }
 
 .kolom .deskripsi {
-    font-size: 25px;
-    font-weight: bold;
+    font-size: 20px;
     font-family: 'comic sans ms';
-    color:#06FF00;
+    color:#000;
 }
 
 h2 {
@@ -154,45 +155,13 @@ h3 {
     width: 100%;
     line-height: 50px;
 }
-*::before,
-*::after {
-    box-sizing: border-box;
-}
 
-html {
-    font-size: 62.5%;
-}
-
-form,
-input, 
-textarea,
-button {
-    font-family: inherit;
-    font-size: initial;
-}
-
-.forms-group label {
-    display: block;
-    margin: 2rem 0 0.5rem 0;
-}
-
-.forms-group input[type="text"],
-.forms-group input[type="email"],
-.forms-group textarea {
-    width: 100%;
-    padding: 1rem 5rem;
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    outline: 0;
-    transition: border 1s;
-}
-
-.forms-group input[type="text"],
-.forms-group input[type="email"] {
-    height: 4.6rem;
-}
-
-.forms-group textarea {
-    resize: vertical;
+table, td {
+    border: 1px solid white;
+    border-collapse: collapse;
+  }
+  th {
+    background-color: #96D4D4;
 }
 
 .submit {
