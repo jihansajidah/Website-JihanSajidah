@@ -21,7 +21,7 @@ body {
     font-weight: 800;
     float: left;
     font-family: initial;
-    color: #06FF00;
+    color: #E07A5F;
 }
 
 .menu {
@@ -36,9 +36,9 @@ nav {
     position: sticky;
     position: -webkit-sticky;
     top: 0;
-    background: #000;
+    background: #1B4D3E;
     z-index: 1;
-    border-bottom:1px solid #DBFF3D;
+    border-bottom:1px solid #E07A5F;
 }
 
 nav ul {
@@ -53,7 +53,7 @@ nav ul li {
 }
 
 nav ul li a {
-    color: #BF3131;
+    color: #E07A5F;
     font-weight: lighter;
     text-align: end;
     padding: 0px 16px 0px 16px;
@@ -165,8 +165,8 @@ table, td {
 }
 
 .submit {
-    background: #FF1700;
-    color: #FFFF00;
+    background: #1B4D3E;
+    color: #E07A5F;
     font-weight: none;
     margin-top: 1rem;
     padding: 1rem;
@@ -176,12 +176,23 @@ table, td {
 }
 
 .submit:hover {
-    background: #FFFF00;
-    color: #FF1700;
+    background: #E07A5F;
+    color: #1B4D3E;
 }
 
 .forms-group input[type="text"]:focus,
 .forms-group input[type="email"]:focus,
 .forms-group textarea:focus {
     border: 1px solid #FF1700S;
+}
+
+footer {
+    width: 100%;
+    margin: auto;
+    display: flex;
+    line-height: 30px;
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    background:#1B4D3E;
 }
