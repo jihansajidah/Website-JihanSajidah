@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>"Web Jihan Sajidah"</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=defice=width, initial-scale=1.0">
+    <title>Menu navbar</title>
+    <link rel="stylesheet"  href="style.css">
+</head>
+<body>
+    <nav>
+        <div class="wrapper">
+            <div class="logo"><a href=''>Perpustakaan Jihan Sajidah</a></div>
+            <div class="menu">
+                <ul>
+                    <li><a href="index.html">Beranda</a></li>
+                    <li><a href="Koleksi.html">Koleksi</a></li>
+                    <li><a href="Tentang Saya.html">Tentang Saya</a></li>
+                    <li><a href="Kontak Kami.html">Kontak Kami</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+        <!-- Koleksi -->
+        <body>
+            <main>
+                <form>
+                    <h1>All Books</h1>
+                    <input type="text" name="" placeholder="Cari Apa?" id="myinput">
+                </form>
+        
+                <div class="cotainer">
+                    <div>
+                        <img src="images (1).jpg">
+                        <h4>Novel</h4>
+                        <h2>Laut Bercerita</h2>
+                        <h4>Sinopsis</h4>
+                        <span>Laut Bercerita bertutur tentang kisah keluarga yang kehilangan, sekumpulan sahabat yang merasakan kekosongan di dada, sekelompok orang yang gemar menyiksa dan lancar berkhianat, sejumlah keluarga yang mencari kejelasan makam anaknya, dan tentang cinta yang tak akan luntur.</span>
+                        <h3><a href="https://drive.google.com/file/d/12m675fXnf_y3kzJpbMGVl591iKuEJP3K/view?usp=drivesdk">BACA</a></h3>
+                    </div>
+        
+                    <div>
+                        <img src="images (5).jpg">
+                        <h4>Filsafat</h4>
+                        <h2>Madilog</h2>
+                        <h4>Sinopsis</h4>
+                        <span>Bangsa Indonesia memandang bahwa apa yang terjadi di dunia ini dipengaruhi oleh kekuatan keramat di alam gaib. Cara pandang ini, disebut-sebut oleh Tan Malaka sebagai “logika mistika”. Logika ini melumpuhkan karena, ketimbang menangani sendiri permasalahan yang dihadapi, lebih baik mengharapkan kekuatan-kekuatan gaib itu sendiri. Karena itu, mereka (masyarakat Indonesia) mengadakan mantra, sesajen, dan doa-doa. Melihat kenyataan bangsanya yang masih terkungkung oleh “logika mistika” itu, Tan Malaka melahirkan Madilog.</span>
+                        <h3><a href="https://drive.google.com/file/d/12zXTRz4h9HB5sCaRJw8IwfjmRAeIypDp/view?usp=drivesdk">BACA</a></h3>
+                    </div>
+        
+                    <div>
+                        <img src="image (6).jpg">
+                        <h4>Novel</h4>
+                        <h2>Bumi Manusia</h2>
+                        <h4>Sinopsis</h4>
+                        <span>Bumi Manusia menceritakan zaman Hindia Belanda dan tiga tokoh utamanya: Minke, seorang pribumi cerdas yang jatuh cinta pada Annelies, putri Nyai Ontosoroh, seorang wanita pribumi yang sangat berpengetahuan meskipun tak bersekolah. Cerita ini menggambarkan perjuangan kaum pribumi di bawah kekuasaan kolonial Belanda.</span>
+                        <h3><a href="https://drive.google.com/file/d/12xZ9HDfSUEU5WjE2bh1a8yu1KvK6cDGM/view?usp=drivesdk">BACA</a></h3>
+
+                    </div>
+        
+                    <div>
+                        <img src="image (7).jpg">
+                        <h4>Novel</h4>
+                        <h2>Merantau Ke Deli</h2>
+                        <h4>Sinopsis</h4>
+                        <span>Cerita ini menceritakan tentang kehidupan kuli kontrak dan pedagang kecil di sebuah perkebunan di Deli pada malam gajian. Para kuli kontrak baru menerima gaji dan sebagian besar menghabiskan uangnya untuk berjudi, minum-minum, dan membeli barang dari pedagang yang berdatangan. Malam itu diisi dengan permainan judi, tari-tarian, dan pesta minum hingga larut malam.</span>
+                        <h3><a href="https://drive.google.com/file/d/12mUyvyJ2rZKpHTrinXdyAgiypoA3EOkJ/view?usp=drivesdk">BACA</a></h3>
+                    </div>
+                </div>
+            </main>    
+        </body>
+
+        <!-- javascript -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#myinput").on("keyup", function(){
+				var value= $(this).val().toLowerCase();
+
+				$(".cotainer div").filter(function () {
+					
+					$(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+				})
+			});
+		});
+	</script>
+</body>
+</html>
