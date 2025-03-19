@@ -23,11 +23,69 @@
         </div>
     </nav>
         <!-- Koleksi -->
-        <body>
+            <style type="text/css">
+                *
+                {
+                    margin: 0;
+                    padding: 0;
+                    font-family: arial;
+                    list-style: none;
+                    text-decoration: none;
+                    box-sizing: border-box;
+                    outline: none;
+                    border: none;
+                }
+                main
+                {
+                    width: 100%;
+                    height: auto;
+                    background: #f8f8f8;
+                    padding: 4rem 4%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-direction: column;
+                }
+                main form input
+                {
+                    width: 30rem;
+                    padding: .5rem;
+                    height: 3rem;
+                    letter-spacing: 2px;
+                    background: #E07A5F;
+                }
+                main .cotainer
+                {
+                    padding: 2rem 0;
+                    display: grid;
+                    grid-template-columns: repeat(5, 1fr);
+                    gap: 2rem;
+                }
+                main .cotainer>div
+                {
+                    text-align: center;
+                    padding: .5rem;
+                    box-shadow: 1px 1px 10px rgba(232, 11, 11, 0.1);
+                }
+                submit {
+                    background-color: #E07A5F; 
+                    color: #E07A5F; 
+                    margin-top: 1rem; 
+                    padding: 10px 20px; 
+                    border-radius: 20px; 
+                    border: none; 
+                    cursor: pointer; 
+                    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out; 
+                }
+                submit:hover {
+                background-color: #1B4D3E; 
+                color: #1B4D3E; 
+                }
+            </style>
+
             <main>
                 <form>
-                    <h1>All Books</h1>
-                    <input type="text" name="" placeholder="Cari Apa?" id="myinput">
+                    <input type="text" name="" placeholder="Ingin Cari Apa?" id="myinput">
                 </form>
         
                 <div class="cotainer">
@@ -56,9 +114,8 @@
                         <h4>Sinopsis</h4>
                         <span>Bumi Manusia menceritakan zaman Hindia Belanda dan tiga tokoh utamanya: Minke, seorang pribumi cerdas yang jatuh cinta pada Annelies, putri Nyai Ontosoroh, seorang wanita pribumi yang sangat berpengetahuan meskipun tak bersekolah. Cerita ini menggambarkan perjuangan kaum pribumi di bawah kekuasaan kolonial Belanda.</span>
                         <h3><a href="https://drive.google.com/file/d/12xZ9HDfSUEU5WjE2bh1a8yu1KvK6cDGM/view?usp=drivesdk">BACA</a></h3>
-
                     </div>
-        
+
                     <div>
                         <img src="image (7).jpg">
                         <h4>Novel</h4>
@@ -69,22 +126,36 @@
                     </div>
                 </div>
             </main>    
+
+            <!-- javascript -->
+        
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        
+            <script type="text/javascript">
+                $(document).ready(function(){
+                    $("#myinput").on("keyup", function(){
+                        var value= $(this).val().toLowerCase();
+        
+                        $(".cotainer div").filter(function () {
+                            
+                            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+        
+        
+        
+                        })
+                    });
+                });
+            </script>
         </body>
 
-        <!-- javascript -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+         
+             <!-- Footer -->
+    <footer class="text-center mt-5 footer">
+        <div class="tengah">
+        &copy; 2025 || Perpustakaan Jihan Sajidah.
+        </div>
+    </footer>
 
-	<script type="text/javascript">
-		$(document).ready(function(){
-			$("#myinput").on("keyup", function(){
-				var value= $(this).val().toLowerCase();
-
-				$(".cotainer div").filter(function () {
-					
-					$(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
-				})
-			});
-		});
-	</script>
 </body>
 </html>
