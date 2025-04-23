@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>"Web Jihan Sajidah"</title>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=defice=width, initial-scale=1.0">
     <title>Menu navbar</title> 
     <link rel="stylesheet" href="style.css">
     <script>
@@ -66,7 +65,8 @@
     <nav>
         <div class="wrapper">
             <div class="logo"><a href=''>Perpustakaan Jihan Sajidah</a></div>
-            <div class="menu">
+            <div class="menu-toggle" id="menu-toggle">☰</div>              
+            <div class="menu" id="menu">
                 <ul>
                     <li><a href="index.html">Beranda</a></li>
                     <li><a href="Koleksi.html">Koleksi</a></li>
@@ -179,8 +179,6 @@
                 <div class="item" style="--position: 10"><img src="project7.jpg" alt=""></div>
             </div>
         </div>
-</body>
-        
 
 
          <!-- Footer -->
@@ -190,4 +188,14 @@
         </div>
     </footer>
 
+    <script>
+        const toggle = document.getElementById('menu-toggle');
+        const menu = document.querySelector('.menu');
+      
+        toggle.addEventListener('click', () => {
+          menu.classList.toggle('show');
+        });
+    </script>
+      
+</body>
 </html>
