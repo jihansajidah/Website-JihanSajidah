@@ -54,7 +54,7 @@
                     letter-spacing: 2px;
                     background: #E07A5F;
                 }
-                main .cotainer
+                main .container
                 {
                     padding: 2rem 0;
                     display: grid;
@@ -62,7 +62,7 @@
                     gap: 2rem;
                     color:#E07A5F;
                 }
-                main .cotainer>div
+                main .container>div
                 {
                     text-align: center;
                     padding: .5rem;
@@ -76,14 +76,14 @@
                     <input type="text" name="" placeholder="Ingin Cari Apa?" id="myinput">
                 </form>
         
-                <div class="cotainer">
+                <div class="container">
                     <div>
                         <img src="images (1).jpg">
                         <h4>Novel</h4>
                         <h2>Laut Bercerita</h2>
                         <h4>Sinopsis</h4>
                         <span>Laut Bercerita bertutur tentang kisah keluarga yang kehilangan, sekumpulan sahabat yang merasakan kekosongan di dada, sekelompok orang yang gemar menyiksa dan lancar berkhianat, sejumlah keluarga yang mencari kejelasan makam anaknya, dan tentang cinta yang tak akan luntur.</span>
-                        <h3><a href="https://drive.google.com/file/d/12m675fXnf_y3kzJpbMGVl591iKuEJP3K/view?usp=drivesdk">BACA</a></h3>
+                        <h3><a href="https://drive.google.com/file/d/12m675fXnf_y3kzJpbMGVl591iKuEJP3K/view?usp=drivesdk" class="baca-link">BACA</a></h3>
                     </div>
         
                     <div>
@@ -92,7 +92,7 @@
                         <h2>Madilog</h2>
                         <h4>Sinopsis</h4>
                         <span>Bangsa Indonesia memandang bahwa apa yang terjadi di dunia ini dipengaruhi oleh kekuatan keramat di alam gaib. Cara pandang ini, disebut-sebut oleh Tan Malaka sebagai “logika mistika”. Logika ini melumpuhkan karena, ketimbang menangani sendiri permasalahan yang dihadapi, lebih baik mengharapkan kekuatan-kekuatan gaib itu sendiri. Karena itu, mereka (masyarakat Indonesia) mengadakan mantra, sesajen, dan doa-doa. Melihat kenyataan bangsanya yang masih terkungkung oleh “logika mistika” itu, Tan Malaka melahirkan Madilog.</span>
-                        <h3><a href="https://drive.google.com/file/d/12zXTRz4h9HB5sCaRJw8IwfjmRAeIypDp/view?usp=drivesdk">BACA</a></h3>
+                        <h3><a href="https://drive.google.com/file/d/12zXTRz4h9HB5sCaRJw8IwfjmRAeIypDp/view?usp=drivesdk" class="baca-link">BACA</a></h3>
                     </div>
         
                     <div>
@@ -101,7 +101,7 @@
                         <h2>Bumi Manusia</h2>
                         <h4>Sinopsis</h4>
                         <span>Bumi Manusia menceritakan zaman Hindia Belanda dan tiga tokoh utamanya: Minke, seorang pribumi cerdas yang jatuh cinta pada Annelies, putri Nyai Ontosoroh, seorang wanita pribumi yang sangat berpengetahuan meskipun tak bersekolah. Cerita ini menggambarkan perjuangan kaum pribumi di bawah kekuasaan kolonial Belanda.</span>
-                        <h3><a href="https://drive.google.com/file/d/12xZ9HDfSUEU5WjE2bh1a8yu1KvK6cDGM/view?usp=drivesdk">BACA</a></h3>
+                        <h3><a href="https://drive.google.com/file/d/12xZ9HDfSUEU5WjE2bh1a8yu1KvK6cDGM/view?usp=drivesdk" class="baca-link">BACA</a></h3>
                     </div>
 
                     <div>
@@ -110,7 +110,7 @@
                         <h2>Merantau Ke Deli</h2>
                         <h4>Sinopsis</h4>
                         <span>Cerita ini menceritakan tentang kehidupan kuli kontrak dan pedagang kecil di sebuah perkebunan di Deli pada malam gajian. Para kuli kontrak baru menerima gaji dan sebagian besar menghabiskan uangnya untuk berjudi, minum-minum, dan membeli barang dari pedagang yang berdatangan. Malam itu diisi dengan permainan judi, tari-tarian, dan pesta minum hingga larut malam.</span>
-                        <h3><a href="https://drive.google.com/file/d/12mUyvyJ2rZKpHTrinXdyAgiypoA3EOkJ/view?usp=drivesdk">BACA</a></h3>
+                        <h3><a href="https://drive.google.com/file/d/12mUyvyJ2rZKpHTrinXdyAgiypoA3EOkJ/view?usp=drivesdk" class="baca-link">BACA</a></h3>
                     </div>
                 </div>
             </main>    
@@ -119,22 +119,19 @@
         
         
             <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-        
             <script type="text/javascript">
                 $(document).ready(function(){
                     $("#myinput").on("keyup", function(){
-                        var value= $(this).val().toLowerCase();
-        
-                        $(".cotainer div").filter(function () {
-                            
-                            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
-        
-        
-        
-                        })
+                        var value = $(this).val().toLowerCase();
+            
+                        $(".container > div").filter(function () {
+                            const title = $(this).find("h2").text().toLowerCase();
+                            const sinopsis = $(this).find("span").text().toLowerCase();
+                            $(this).toggle(title.indexOf(value) > -1 || sinopsis.indexOf(value) > -1);
+                        });
                     });
                 });
-            </script>
+            </script>            
         </body>
 
          
