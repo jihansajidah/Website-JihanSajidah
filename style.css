@@ -555,4 +555,87 @@ h1, h2, h3, h4, h5, h6 {
       display: block;
     }
   }
-  
+
+ 
+  .kontak-icons {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.kontak-icons .icon {
+    display: inline-block;
+    margin: 0 10px;
+    font-size: 30px;
+    color: #1B4D3E;
+    background-color: #e6f0ec;
+    padding: 15px;
+    border-radius: 50%;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    text-decoration: none;
+}
+
+.kontak-icons .icon:hover {
+    background-color: #d4ebe3;
+    transform: scale(1.1);
+}
+
+
+
+
+main .container > div {
+    text-align: center;
+    padding: 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    background: #fff;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+main .container > div:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsif: Grid berubah jadi 1-2 kolom di layar kecil */
+@media (max-width: 1024px) {
+    main .container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (max-width: 600px) {
+    main .container {
+        grid-template-columns: 1fr;
+    }
+
+    main form input {
+        width: 100%;
+    }
+}
+
+
+.baca-link {
+    display: inline-block;
+    background-color: #1B4D3E;
+    color: #fff;
+    padding: 0.5rem 1.2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.baca-link:hover {
+    background-color: #E07A5F;
+    transform: scale(1.1);
+    box-shadow: 0 4px 100px #1B4D3E;
+}
+
+@media (max-width: 768px) {
+    main form input {
+        width: 100%;
+    }
+
+    main .container {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
