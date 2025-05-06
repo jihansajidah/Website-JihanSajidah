@@ -3,50 +3,58 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>"Web Jihan Sajidah"</title>
-    <title>Menu navbar</title> 
+    <title>Web Jihan Sajidah</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
     <script>
-        function mainkanmusik() {
-            var musik = new Audio;
-            var ext=".mp3";
-            var playlist=document.getElementById('playlist');
-
-            musik.src="Oracion"+ext;
+        let musik = new Audio();
+        let ext = ".mp3";
+    
+        function gantiLagu(e) {
+            musik.src = e.target.value + ext;
             musik.play();
-
-            playlist.addEventListener('change', gantiLagu);
-
-            function gantiLagu(e) {
-                musik.src=e.target.value+ext;
-                musik.play();
-            }
         }
-
-        window.addEventListener('load', mainkanmusik);
+    
+        function mainkanMusik() {
+            const playlist = document.getElementById('playlist');
+            musik.src = playlist.value + ext;
+            musik.play();
+        }
+    
+        function hentikanMusik() {
+            musik.pause();
+            musik.currentTime = 0;
+        }
+    
+        document.addEventListener("DOMContentLoaded", function () {
+            const playlist = document.getElementById('playlist');
+            playlist.addEventListener('change', gantiLagu);
+    
+            document.getElementById("btnPlay").addEventListener("click", mainkanMusik);
+            document.getElementById("btnStop").addEventListener("click", hentikanMusik);
+        });
     </script>
-
+    
     <style>
-        *{
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        body{
+        body {
             background-color: #D2D2D2;
             background-image:
-            repeating-linear-gradient(
-                to right, transparent 0 100px,
-                #25283b22 100px 101px
-            ),
-            repeating-linear-gradient(
-                to bottom, transparent 0 100px,
-                #25283b22 100px 101px
-            );
+                repeating-linear-gradient(
+                    to right, transparent 0 100px,
+                    #25283b22 100px 101px
+                ),
+                repeating-linear-gradient(
+                    to bottom, transparent 0 100px,
+                    #25283b22 100px 101px
+                );
         }
-        
-        body::before{
+        body::before {
             position: absolute;
             width: min(1400px, 90vw);
             top: 10%;
@@ -59,12 +67,10 @@
             background-position: top center;
             pointer-events: none;
         }
-
         #Event {
             padding: 4rem 2rem;
             text-align: center;
         }
-
         #Event .section-title {
             font-size: 2rem;
             margin-bottom: 2rem;
@@ -72,17 +78,15 @@
             position: relative;
             display: inline-block;
         }
-
         #event-container {
-          display: flex;
-          justify-content: center;  
-          align-items: flex-start;
-          gap: 2rem;
-          padding: 1rem;
-          overflow-x: auto;  
-          scroll-snap-type: x mandatory; 
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 2rem;
+            padding: 1rem;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
         }
-
         .post {
             background: #fff;
             flex: 0 0 280px;
@@ -97,12 +101,10 @@
             animation: zoomEffect 0.5s ease-out, fadeIn 0.5s ease-out;
             scroll-snap-align: start;
         }
-
         .post:hover {
             transform: scale(1.1);
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
         }
-
         @keyframes fadeIn {
             0% {
                 opacity: 0;
@@ -115,12 +117,11 @@
         }
     </style>
 </head>
-
-<body>
+<body>  
     <nav>
         <div class="wrapper">
-          <div class="logo"><a href=''>Perpustakaan Jihan Sajidah</a></div>       
-            <div class="menu-toggle" id="menu-toggle">☰</div>              
+            <div class="logo"><a href=''>Perpustakaan Jihan Sajidah</a></div>
+            <div class="menu-toggle" id="menu-toggle">☰</div>
             <div class="menu" id="menu">
                 <ul>
                     <li><a href="index.html">Beranda</a></li>
@@ -131,124 +132,114 @@
             </div>
         </div>
     </nav>
+
     <select id="playlist" size='6'>
         <option value="Oracion">Oracion</option>
         <option value="Sunshine Cantinat">Sunshine Cantinat</option>
         <option value="Chica Linda">Chica Linda</option>
         <option value="Mi Canton">Mi Canton</option>
     </select>
+    
+    <div style="margin-top: 10px;">
+        <button id="btnPlay" class="button-musik">🔊 ON</button>
+        <button id="btnStop" class="button-musik">🔇 OFF</button>
+    </div>
+    
+    
+    <section id="home">
+        <img src="https://img.freepik.com/premium-photo/quotlibrary-with-treehousestyle-study-roomsquot_1324785-92204.jpg?ga=GA1.1.38673925.1739973667&semt=ais_hybrid"/>
+        <div class="kolom">
+            <h2>HEY BUDDY! WELCOME TO MY WEBSITE</h2>
+        </div>
+    </section>
 
-        <!-- untuk Beranda -->
-        <section id="home">
-             <img src="https://img.freepik.com/premium-photo/quotlibrary-with-treehousestyle-study-roomsquot_1324785-92204.jpg?ga=GA1.1.38673925.1739973667&semt=ais_hybrid"/>
-             <div class="kolom">
-                <h2>HEY BUDDY! WELCOME TO MY WEBSITE</h2>
-             </div>
-        </section>
+    <section id="Profil">
+        <div class="kolom">
+            <p class="deskripsi">KOLABORASI PERPUSTAKAAN</p>
+            <h2><p><a href="https://library.unhas.ac.id/#">Perpustakaan Universitas Hasanuddin</a></p></h2>
+        </div>
+        <img src="https://img.freepik.com/premium-photo/drawing-family-table-with-laptop-book-titled-word-it_811553-13662.jpg?ga=GA1.1.38673925.1739973667&semt=ais_hybrid"/>
+    </section>
 
-         <!-- untuk profil -->
-         <section id="Profil">
-            <div class="kolom">
-                <p class="deskripsi">KOLABORASI PERPUSTAKAAN</p>
-                <h2><p><a href="https://library.unhas.ac.id/#">Perpustakaan Universitas Hasanuddin</a></p></h2>
-            </div>
-            <img src="https://img.freepik.com/premium-photo/drawing-family-table-with-laptop-book-titled-word-it_811553-13662.jpg?ga=GA1.1.38673925.1739973667&semt=ais_hybrid"/>
-        </section>
-
-        <!-- Section Event -->
-        <section id="Event">
-            <div class="Kolom">
-              <h3 class="section-title">KEGIATAN PERPUSTAKAAN</h3>
-              <div class="tab-content" id="postsTabContent">
+    <section id="Event">
+        <div class="Kolom">
+            <h3 class="section-title">KEGIATAN PERPUSTAKAAN</h3>
+            <div class="tab-content" id="postsTabContent">
                 <div id="event-container"></div>
-              </div>
-            </div>
-        </section>
-          
-          <script>
-            document.addEventListener("DOMContentLoaded", function () {
-                    const events = [
-                        {
-                            title: "Mejenk Karya",
-                            date: "19 April 2025",
-                            img: "picture 1.jpeg",
-                            link: "https://www.instagram.com/p/DIbApYNpsCD/?igsh=MmM3MmMzbm1rYnQy"
-                        },
-                        {
-                            title: "Volunter Talks",
-                            date: "8 Desember 2024",
-                            img: "picture 2.jpeg",
-                            link: "https://www.instagram.com/p/DDUCY0MTN10/?img_index=3&igsh=MXBncXdoOTBkcHRoZg=="
-                        },
-                        {
-                            title: "Kegiatan Literasi Anak",
-                            date: "16, 22, 23 Februari 2025",
-                            img: "picture 4.jpeg",
-                            link: "https://www.instagram.com/p/DGAZZwkvpmf/?img_index=1&igsh=MWsxN3VtZHYzejFqcQ=="
-                        }
-                    ];
-
-                    const container = document.getElementById("event-container");
-
-                    events.forEach((event, index) => {
-                        const postDiv = document.createElement("div");
-                        postDiv.className = "post";
-                        postDiv.style.animationDelay = `${index * 0.2}s`; // Delay untuk efek bertahap
-
-                        postDiv.innerHTML = `
-                            <div class="thumb">
-                                <a href="${event.link}" target="_blank">
-                                    <img src="${event.img}" alt="${event.title}">
-                                </a>
-                            </div>
-                            <div class="details">
-                                <h6 class="post-title">
-                                    <i class="fa-solid fa-book-open"></i>
-                                    <a href="${event.link}" target="_blank">${event.title}</a>
-                                </h6>
-                                <ul class="meta">
-                                    <li><i class="fa-solid fa-calendar-days"></i> ${event.date}</li>
-                                </ul>
-                            </div>
-                        `;
-
-                        container.appendChild(postDiv);
-                    });
-                });
-          </script>              
-
-        <!-- untuk animasi-->
-        <div class="banner">
-            <div class="slider" style="--quantity: 10">
-                <div class="item" style="--position: 1"><img src="project1.jpg" alt=""></div>
-                <div class="item" style="--position: 2"><img src="project2.jpg" alt=""></div>
-                <div class="item" style="--position: 3"><img src="project3.jpg" alt=""></div>
-                <div class="item" style="--position: 4"><img src="project4.jpg" alt=""></div>
-                <div class="item" style="--position: 5"><img src="project5.jpg" alt=""></div>
-                <div class="item" style="--position: 6"><img src="project6.jpg" alt=""></div>
-                <div class="item" style="--position: 7"><img src="project8.jpg" alt=""></div>
-                <div class="item" style="--position: 8"><img src="project9.jpg" alt=""></div>
-                <div class="item" style="--position: 9"><img src="project10.jpg" alt=""></div>
-                <div class="item" style="--position: 10"><img src="project7.jpg" alt=""></div>
             </div>
         </div>
-
-
-         <!-- Footer -->
-    <footer class="text-center mt-5 footer">
-        <div class="tengah">
-        &copy; 2025 || Perpustakaan Jihan Sajidah.
-        </div>
-    </footer>
+    </section>
 
     <script>
-        const toggle = document.getElementById('menu-toggle');
-        const menu = document.querySelector('.menu');
-      
-        toggle.addEventListener('click', () => {
-          menu.classList.toggle('show');
+        document.addEventListener("DOMContentLoaded", function () {
+            const events = [
+                {
+                    title: "Mejenk Karya",
+                    date: "19 April 2025",
+                    img: "picture 1.jpeg",
+                    link: "https://www.instagram.com/p/DIbApYNpsCD/?igsh=MmM3MmMzbm1rYnQy"
+                },
+                {
+                    title: "Volunter Talks",
+                    date: "8 Desember 2024",
+                    img: "picture 2.jpeg",
+                    link: "https://www.instagram.com/p/DDUCY0MTN10/?img_index=3&igsh=MXBncXdoOTBkcHRoZg=="
+                },
+                {
+                    title: "Kegiatan Literasi Anak",
+                    date: "16, 22, 23 Februari 2025",
+                    img: "picture 4.jpeg",
+                    link: "https://www.instagram.com/p/DGAZZwkvpmf/?img_index=1&igsh=MWsxN3VtZHYzejFqcQ=="
+                }
+            ];
+
+            const container = document.getElementById("event-container");
+
+            events.forEach((event, index) => {
+                const postDiv = document.createElement("div");
+                postDiv.className = "post";
+                postDiv.style.animationDelay = `${index * 0.2}s`;
+
+                postDiv.innerHTML = `
+                    <div class="thumb">
+                        <a href="${event.link}" target="_blank">
+                            <img src="${event.img}" alt="${event.title}">
+                        </a>
+                    </div>
+                    <div class="details">
+                        <h6 class="post-title">
+                            <i class="fa-solid fa-book-open"></i>
+                            <a href="${event.link}" target="_blank">${event.title}</a>
+                        </h6>
+                        <ul class="meta">
+                            <li><i class="fa-solid fa-calendar-days"></i> ${event.date}</li>
+                        </ul>
+                    </div>
+                `;
+
+                container.appendChild(postDiv);
+            });
         });
     </script>
-      
+
+    <div class="banner">
+        <div class="slider" style="--quantity: 10">
+            <div class="item" style="--position: 1"><img src="project1.jpg" alt=""></div>
+            <div class="item" style="--position: 2"><img src="project2.jpg" alt=""></div>
+            <div class="item" style="--position: 3"><img src="project3.jpg" alt=""></div>
+            <div class="item" style="--position: 4"><img src="project4.jpg" alt=""></div>
+            <div class="item" style="--position: 5"><img src="project5.jpg" alt=""></div>
+            <div class="item" style="--position: 6"><img src="project6.jpg" alt=""></div>
+            <div class="item" style="--position: 7"><img src="project8.jpg" alt=""></div>
+            <div class="item" style="--position: 8"><img src="project9.jpg" alt=""></div>
+            <div class="item" style="--position: 9"><img src="project10.jpg" alt=""></div>
+            <div class="item" style="--position: 10"><img src="project7.jpg" alt=""></div>
+        </div>
+    </div>
+
+    <footer class="text-center mt-5 footer">
+        <div class="tengah">
+        <p>&copy; 2025 || Web Jihan Sajidah</p>
+    </footer>
 </body>
 </html>
