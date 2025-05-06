@@ -639,3 +639,68 @@ main .container > div:hover {
         grid-template-columns: repeat(1, 1fr);
     }
 }
+
+
+.button-musik {
+    background-color: #E07A5F;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.button-musik:hover {
+    background-color: #d7654b;
+    transform: scale(1.05);
+}
+
+
+#music-controls {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+}
+
+.button-musik {
+    background-color: #E07A5F;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    margin: 3px;
+    font-size: 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.button-musik:hover {
+    background-color: #d7654b;
+    transform: scale(1.05);
+}
+
+
+
+.button-musik {
+    background-color: #E07A5F;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    margin: 2px;
+    font-size: 13px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.button-musik:hover {
+    background-color: #d7654b;
+    transform: scale(1.05);
+}
