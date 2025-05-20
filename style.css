@@ -24,7 +24,7 @@
   
   .logo a {
     color: #E07A5F;
-    font-size: 50px;
+    font-size: 40px;
     font-family: initial;
     text-decoration: none;
     font-weight: 800;
@@ -811,32 +811,3 @@ main .container > div:hover {
 @media (max-width: 600px) {
   .cookie-modal-content { max-width: 96vw; min-width: 0; padding: 16px 8px; }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
