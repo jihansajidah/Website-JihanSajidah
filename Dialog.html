@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Forum Diskusi | Web Jihan Sajidah</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    form {
+      max-width: 600px;
+      margin: 20px auto;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    input, textarea {
+      padding: 10px;
+      border-radius: 100px;
+      border: 1px solid #1B4D3E;
+    }
+
+    button {
+      background-color: #d45d3e;
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #b3462a;
+    }
+
+    button.round-button {
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      padding: 0;
+      font-size: 16px;
+      text-align: center;
+      line-height: 40px;
+      background-color: #d45d3e;
+      color: white;
+      border: none;
+      margin-right: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button.round-button:hover {
+      background-color: #b3462a;
+    }
+
+    button.round-button.full-text {
+      border-radius: 50px;
+      padding: 10px 15px;
+      width: auto;
+      height: auto;
+      line-height: 1.2;
+    }
+
+    .post {
+      border: 1px solid #1B4D3E;
+      background-color: #f7946aec;
+      padding: 20px;
+      margin: 10px auto;
+      max-width: 450px;
+      border-radius: 15px;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      box-sizing: border-box;
+    }
+  
+    .post-header {
+      font-weight: bold;
+      color: #1B4D3E;
+    }
+
+    .date {
+      font-size: 0.9em;
+      color: #48494B;
+      margin-bottom: 10px;
+    }
+
+    .reply-form {
+      margin-top: 10px;
+      background-color: #1B4D3E;
+      padding: 10px;
+      border-radius: 6px;
+    }
+
+    .post-content {
+      font-family: 'Georgia', serif;
+      font-size: 1.15rem;
+      color: #080707;
+      margin: 10px 0;
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    #discussionList {
+      max-width: 600px;
+      margin: 20px auto;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="wrapper">
+      <div class="logo"><a href="#">Perpustakaan Jihan Sajidah</a></div>
+      <div class="menu">
+        <ul>
+          <li><a href="index.html">Beranda</a></li>
+          <li><a href="Koleksi.html">Koleksi</a></li>
+          <li><a href="Tentang Saya.html">Tentang Saya</a></li>
+          <li><a href="Dialog.html" class="active">Dialog</a></li>
+          <li><a href="Kontak Kami.html">Kontak Kami</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section id="Tentang Saya">
+    <div class="tengah">
+      <h2>Forum Dialog</h2>
+      <h4>Discover New Insights Through Conversations!</h4>
+    </div>
+  </section>
+
+  <!-- Form Kirim Diskusi -->
+  <form id="postForm">
+    <input type="text" id="username" placeholder="Masukkan Nama Anda..." required />
+    <input type="text" id="subject" placeholder="Masukkan Subjek Dialog..." required />
+    <textarea id="postContent" placeholder="Tulis Dialog Anda di Sini..." required></textarea>
+    <button type="submit">Kirim</button>
+  </form>
+
+  <!-- List Diskusi -->
+  <div id="discussionList"></div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const postForm = document.getElementById("postForm");
+      const discussionList = document.getElementById("discussionList");
+      const usernameInput = document.getElementById("username");
+      const subjectInput = document.getElementById("subject");
+      const postContent = document.getElementById("postContent");
+
+      let posts = JSON.parse(localStorage.getItem("forumPosts")) || [];
+
+      function savePosts() {
+        localStorage.setItem("forumPosts", JSON.stringify(posts));
+      }
+
+      function formatDate(dateObj) {
+        const d = new Date(dateObj);
+        return `${String(d.getDate()).padStart(2, '0')}-${String(d.getMonth() + 1).padStart(2, '0')}-${d.getFullYear()}`;
+      }
+
+      function createPostElement(postData, level = 0) {
+        const postDiv = document.createElement("div");
+        postDiv.classList.add("post");
+        postDiv.style.marginLeft = `${level * 20}px`;
+
+        const header = document.createElement("div");
+        header.classList.add("post-header");
+        header.innerHTML = `<strong>${postData.username}</strong> | <em>${postData.subject}</em>`;
+
+        const dateEl = document.createElement("div");
+        dateEl.classList.add("date");
+        dateEl.textContent = `Diposting pada: ${formatDate(postData.date)}`;
+
+        const contentEl = document.createElement("div");
+        contentEl.classList.add("post-content");
+        contentEl.textContent = postData.content;
+
+        const likeBtn = document.createElement("button");
+        likeBtn.classList.add("round-button");
+        likeBtn.innerHTML = "👍";
+        likeBtn.title = `Suka (${postData.likes})`;
+        likeBtn.addEventListener("click", () => {
+          postData.likes++;
+          savePosts();
+          renderPosts(posts);
+        });
+
+        const dislikeBtn = document.createElement("button");
+        dislikeBtn.classList.add("round-button");
+        dislikeBtn.innerHTML = "👎";
+        dislikeBtn.title = `Tidak Suka (${postData.dislikes})`;
+        dislikeBtn.addEventListener("click", () => {
+          postData.dislikes++;
+          savePosts();
+          renderPosts(posts);
+        });
+
+        const replyBtn = document.createElement("button");
+        replyBtn.classList.add("round-button", "full-text");
+        replyBtn.textContent = "Balas";
+
+        const toggleRepliesBtn = document.createElement("button");
+        toggleRepliesBtn.classList.add("round-button", "full-text");
+        toggleRepliesBtn.textContent = "Lihat Balasan";
+
+        const replyForm = document.createElement("form");
+        replyForm.classList.add("reply-form");
+        replyForm.style.display = "none";
+
+        const replyName = document.createElement("input");
+        replyName.placeholder = "Nama Anda";
+        replyName.required = true;
+
+        const replySubject = document.createElement("input");
+        replySubject.placeholder = "Subjek Balasan";
+        replySubject.required = true;
+
+        const replyText = document.createElement("textarea");
+        replyText.placeholder = "Tulis balasan...";
+        replyText.required = true;
+
+        const replySubmit = document.createElement("button");
+        replySubmit.type = "submit";
+        replySubmit.textContent = "Kirim Balasan";
+
+        replyForm.append(replyName, replySubject, replyText, replySubmit);
+
+        replyBtn.addEventListener("click", () => {
+          replyForm.style.display = replyForm.style.display === "none" ? "block" : "none";
+        });
+
+        replyForm.addEventListener("submit", (e) => {
+          e.preventDefault();
+          const replyData = {
+            username: replyName.value,
+            subject: replySubject.value,
+            content: replyText.value,
+            date: new Date(),
+            likes: 0,
+            dislikes: 0,
+            replies: []
+          };
+          postData.replies.push(replyData);
+          savePosts();
+          renderPosts(posts);
+        });
+
+        const repliesContainer = document.createElement("div");
+        repliesContainer.style.display = "none";
+
+        toggleRepliesBtn.addEventListener("click", () => {
+          repliesContainer.style.display = repliesContainer.style.display === "none" ? "block" : "none";
+          toggleRepliesBtn.textContent = repliesContainer.style.display === "none" ? "Lihat Balasan" : "Sembunyikan Balasan";
+        });
+
+        postData.replies.forEach(reply => {
+          const replyEl = createPostElement(reply, level + 1);
+          repliesContainer.appendChild(replyEl);
+        });
+
+        postDiv.append(header, dateEl, contentEl, likeBtn, dislikeBtn, replyBtn, toggleRepliesBtn, replyForm, repliesContainer);
+        return postDiv;
+      }
+
+      function renderPosts(postArray) {
+        discussionList.innerHTML = "";
+        postArray.forEach(post => {
+          const postEl = createPostElement(post);
+          discussionList.appendChild(postEl);
+        });
+      }
+
+      postForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        const newPost = {
+          username: usernameInput.value.trim(),
+          subject: subjectInput.value.trim(),
+          content: postContent.value.trim(),
+          date: new Date(),
+          likes: 0,
+          dislikes: 0,
+          replies: []
+        };
+
+        if (newPost.username && newPost.subject && newPost.content) {
+          posts.push(newPost);
+          savePosts();
+
+          const newPostEl = createPostElement(newPost);
+          discussionList.appendChild(newPostEl); // Langsung tampilkan
+          
+          postForm.reset(); // Bersihkan form
+        }
+      });
+
+      // Tampilkan semua postingan awal
+      renderPosts(posts);
+    });
+  </script>
+
+</body>
+</html>
