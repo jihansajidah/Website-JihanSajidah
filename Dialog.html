@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Forum Diskusi | Web Jihan Sajidah</title>
   <link rel="stylesheet" href="style.css">
   <style>
@@ -104,23 +104,117 @@
       max-width: 600px;
       margin: 20px auto;
     }
+
+
+      /* Navbar dasar */
+    nav {
+      background-color: #1B4D3E;
+      padding: 1rem 4%;
+    }
+    .wrapper {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo a {
+    color: #E07A5F;
+    font-size: 40px;
+    font-family: initial;
+    text-decoration: none;
+    font-weight: 800;
+    }
+    
+    .menu ul {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+    }
+    
+    .menu ul li a {
+        color: #E07A5F;
+        text-decoration: none;
+        font-weight: bold;
+        transition: 0.3s;
+    }
+    
+    .menu ul li a:hover {
+        color: #fff;
+    }
+    /* Menu toggle button */
+    .menu-toggle {
+        display: none;
+        font-size: 2rem;
+        cursor: pointer;
+        user-select: none;
+        color: white;
+    }
+
+    /* Toggle button - hidden di desktop */
+    #menu-toggle {
+      display: none;
+      font-size: 2rem;
+      color: white;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    /* Responsive di bawah 768px */
+    @media (max-width: 768px) {
+      #menu-toggle {
+        display: block;
+      }
+
+      .menu {
+        position: absolute;
+        top: 60px; /* tinggi navbar kira2 */
+        right: 4%;
+        background-color: #1B4D3E;
+        width: 200px;
+        max-height:500px;
+        overflow-y: auto;
+        border-radius: 0 0 10px 10px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        transition: max-height 0.3s ease;
+        z-index: 999;
+      }
+      .menu.show {
+        max-height: 500px; /* cukup untuk menampilkan semua menu */
+      }
+      .menu ul {
+        flex-direction: column;
+        gap: 0;
+      }
+      .menu ul li {
+        border-bottom: 1px solid #286647;
+      }
+      .menu ul li:last-child {
+        border-bottom: none;
+      }
+      .menu ul li a {
+        padding: 1rem 1.5rem;
+        display: block;
+      }
+    }
   </style>
 </head>
 <body>
 
   <nav>
-    <div class="wrapper">
-      <div class="logo"><a href="#">Perpustakaan Jihan Sajidah</a></div>
-      <div class="menu">
-        <ul>
-          <li><a href="index.html">Beranda</a></li>
-          <li><a href="Koleksi.html">Koleksi</a></li>
-          <li><a href="Tentang Saya.html">Tentang Saya</a></li>
-          <li><a href="Dialog.html" class="active">Dialog</a></li>
-          <li><a href="Kontak Kami.html">Kontak Kami</a></li>
-        </ul>
-      </div>
+  <div class="wrapper">
+    <div class="logo"><a href="#">Perpustakaan Jihan Sajidah</a></div>
+    <div id="menu-toggle">☰</div> <!-- tombol toggle -->
+    <div class="menu" id="menu">
+      <ul>
+        <li><a href="index.html">Beranda</a></li>
+        <li><a href="Koleksi.html">Koleksi</a></li>
+        <li><a href="Tentang Saya.html">Tentang Saya</a></li>
+        <li><a href="Dialog.html" class="active">Dialog</a></li>
+        <li><a href="Kontak Kami.html">Kontak Kami</a></li>
+      </ul>
     </div>
+  </div>
   </nav>
 
   <section id="Tentang Saya">
@@ -299,6 +393,18 @@
       // Tampilkan semua postingan awal
       renderPosts(posts);
     });
+  </script>
+
+  <script>
+   document.addEventListener("DOMContentLoaded", function() {
+    const toggle = document.getElementById("menu-toggle");
+    const menu = document.getElementById("menu");
+    if (toggle && menu) {
+      toggle.addEventListener("click", function () {
+        menu.classList.toggle("show");
+      });
+    }
+  });
   </script>
 
 </body>
