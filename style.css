@@ -811,3 +811,158 @@ main .container > div:hover {
 @media (max-width: 600px) {
   .cookie-modal-content { max-width: 96vw; min-width: 0; padding: 16px 8px; }
 }
+/* Tambahan Responsif Umum */
+@media (max-width: 768px) {
+  section {
+    flex-direction: column;
+    padding: 20px;
+    gap: 20px;
+  }
+
+  section img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .kolom {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  #event-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    overflow-x: hidden;
+  }
+
+  .post {
+    width: 90%;
+    max-width: 360px;
+    margin: 0 auto;
+  }
+
+  .banner {
+    height: auto;
+    padding-bottom: 50px;
+  }
+
+  .banner .slider {
+    position: relative;
+    top: unset;
+    left: unset;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 1024px) {
+  .table-box .table-row {
+    display: block;
+    text-align: center;
+  }
+
+  .table-cell {
+    display: block;
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #E07A5F;
+  }
+
+  .banner {
+    height: auto;
+    padding-bottom: 50px;
+  }
+
+  .banner .slider {
+    top: 0;
+    position: relative;
+    left: unset;
+    transform: none;
+    margin: auto;
+  }
+
+  main .container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  nav {
+    flex-direction: column;
+    line-height: 100px;
+  }
+
+  .menu ul {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+
+  section {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+
+  main .container {
+    grid-template-columns: 1fr;
+  }
+
+  form input, form textarea {
+    width: 100%;
+  }
+
+  .post {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .table-box {
+    overflow-x: auto;
+  }
+
+  .banner .content h1 {
+    font-size: 2em;
+  }
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 28px;
+    color: white;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .menu {
+        display: none;
+        width: 100%;
+        background-color: #1B4D3E;
+    }
+
+    .menu ul {
+        flex-direction: column;
+        padding: 10px 0;
+        margin: 0;
+    }
+
+    .menu ul li {
+        text-align: center;
+    }
+
+    .menu ul li a {
+        display: block;
+        padding: 12px;
+        color: white;
+        border-top: 1px solid #E07A5F;
+    }
+
+    .menu.show {
+        display: block;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+}
