@@ -171,6 +171,93 @@
                 transform: translateY(0);
             }
         }
+    /* Menu toggle button */
+    .menu-toggle {
+        display: none;
+        font-size: 2rem;
+        cursor: pointer;
+        user-select: none;
+        color: white;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 1024px) {
+        main .container {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+    @media (max-width: 768px) {
+        .menu-toggle {
+            display: block;
+        }
+        .menu {
+            position: absolute;
+            top: 10%;
+            right: 0;
+            background: #1B4D3F;
+            width: 200px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            border-radius: 0 0 8px 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            z-index: 999;
+        }
+        .menu.show {
+            max-height: 500px; /* cukup untuk muat seluruh menu */
+        }
+        .menu ul {
+            flex-direction: column;
+            gap: 0;
+        }
+        .menu ul li {
+            border-bottom: 1px solid #E07A5F;
+        }
+        .menu ul li:last-child {
+            border-bottom: none;
+        }
+        .menu ul li a {
+            display: block;
+            padding: 1rem 1.5rem;
+        }
+    }
+    @media (max-width: 600px) {
+        main .container {
+            grid-template-columns: 1fr;
+        }
+        main form input {
+            width: 100%;
+        }
+    }
+
+        .menu ul {
+        list-style: none;
+        display: flex;
+        gap: 1rem;
+        padding: 0;
+        margin: 0;
+    }
+
+    @media (max-width: 768px) {
+        .menu ul {
+            flex-direction: column;
+            display: flex; /* Pastikan menu muncul dalam kolom */
+        }
+
+        .menu {
+            display: block; /* Pastikan div menu muncul */
+        }
+
+        .menu ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .menu ul li a:hover {
+            background-color: #E07A5F;
+            color: white;
+        }
+    }
     </style>
 </head>
 
@@ -333,6 +420,12 @@
                 </form>
             </div>
             </div>
+
+        <script>
+        document.getElementById('menu-toggle').addEventListener('click', function () {
+            document.getElementById('menu').classList.toggle('show');
+        });
+        </script>
 
     <footer class="text-center mt-5 footer">
         <div class="tengah">
