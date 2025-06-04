@@ -4,15 +4,119 @@
     <title>"Web Jihan Sajidah"</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=defice=width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menu navbar</title>
     <link rel="stylesheet"  href="style.css">
+
+    <style>
+    /* Reset & basic */
+    * {
+        box-sizing: border-box;
+    }
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+    }
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    /* Navbar styles */
+    nav {
+        background-color: #1B4D3E;
+        color: white;
+        padding: 1rem 4%;
+    }
+    .wrapper {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+    }
+    .logo a {
+        color: #E07A5F;
+        font-size: 40px;
+        font-family: initial;
+        text-decoration: none;
+        font-weight: 800;
+    }
+    
+    .menu ul {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+    }
+    
+    .menu ul li a {
+        color: #E07A5F;
+        text-decoration: none;
+        font-weight: bold;
+        transition: 0.3s;
+    }
+    
+    .menu ul li a:hover {
+        color: #fff;
+    }
+
+    /* Toggle button */
+    .menu-toggle {
+        display: none;
+        font-size: 2rem;
+        cursor: pointer;
+        user-select: none;
+        color: white;
+    }
+
+    /* Responsive: tablet and below */
+    @media (max-width: 768px) {
+        .menu-toggle {
+            display: block;
+        }
+
+       .menu {
+        position: absolute;
+        top: 10%;
+        right: 0;
+        background: #1B4D3F;
+        width: 200px;
+        max-height: 500px;
+        overflow-y: auto;
+        transition: max-height 0.3s ease;
+        border-radius: 0 0 8px 8px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        z-index: 999;
+        }
+        
+        .menu.show {
+            max-height: 500px; /* cukup untuk semua item */
+        }
+        .menu ul {
+            flex-direction: column;
+            gap: 0;
+        }
+        .menu ul li {
+            border-bottom: 1px solid #286647;
+        }
+        .menu ul li:last-child {
+            border-bottom: none;
+        }
+        .menu ul li a {
+            display: block;
+            padding: 1rem 1.5rem;
+        }
+        }
+    </style>
 </head>
+
 <body>
-    <nav>
+     <nav>
         <div class="wrapper">
             <div class="logo"><a href=''>Perpustakaan Jihan Sajidah</a></div>
-            <div class="menu">
+            <div class="menu-toggle" id="menu-toggle">☰</div>
+            <div class="menu" id="menu">
                 <ul>
                     <li><a href="index.html">Beranda</a></li>
                     <li><a href="Koleksi.html">Koleksi</a></li>
@@ -70,6 +174,18 @@
         &copy; 2025 || Perpustakaan Jihan Sajidah.
         </div>
     </footer>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const toggle = document.getElementById("menu-toggle");
+        if (toggle) {
+        toggle.addEventListener("click", function () {
+            document.getElementById("menu").classList.toggle("show");
+        });
+        }
+    });
+    </script>
+
 
 </body>
 </html>
